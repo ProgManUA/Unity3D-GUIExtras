@@ -1,0 +1,14 @@
+Some extra GUI elements for Unity3D.
+I made it, because not find existing GUI elements that would fit for my project.
+
+WHAT IS DONE:
+ - ListBox:
+Almost all I wanted to do.
+TODO: Ability of use own GUI style.
+
+WHAT IS NOT DONE: 
+Other GUI elements.
+
+DISCLAIMER: 
+It's undone yet.
+Code may be pretty unprofessional, and hard to read.
