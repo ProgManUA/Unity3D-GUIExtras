@@ -4,6 +4,7 @@ using System.Collections;
 public class Test : MonoBehaviour {
 	
 	public Texture2D icon;
+	public GUISkin ListSkin;
 	
 	private ListBox some_list;
 	private Rect window_ListBoxTest = new Rect(5, 5, 300, 175);
@@ -17,7 +18,7 @@ public class Test : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		//LISTBOX TEST
-		some_list = new ListBox(new Rect(10, 20, 110, 150), new Rect(0, 0, 90, 150), false, true);
+		some_list = new ListBox(new Rect(10, 20, 110, 150), new Rect(0, 0, 90, 150), false, true, ListSkin);
 		some_list.AddItem("Text 1");
 		some_list.AddItem("Text 2");
 		some_list.AddItem("Text 3");

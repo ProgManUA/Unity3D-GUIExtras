@@ -23,6 +23,9 @@ public class ListBox {
 	private List<ListItem> listItems = new List<ListItem>();
 	
 	protected int lastSelectedIndex = -1;
+	
+	protected GUISkin custom_skin; 
+	protected bool custom_skin_flag = false;
 	//======
 	
 	//Constructors
@@ -42,6 +45,31 @@ public class ListBox {
 		
 		horScrollVisible = c_horScrollV;
 		vertScrollVisible = c_vertScrollV;
+	}
+	
+		//Skins added
+	public ListBox(Rect c_drawRect, Rect c_visibleRect, GUISkin c_custom_skin)
+	{
+		drawRect = c_drawRect;
+		visibleRect = c_visibleRect;
+		
+		horScrollVisible = false;
+		vertScrollVisible = false;
+		
+		custom_skin = c_custom_skin;
+		custom_skin_flag = true;
+	}
+	
+	public ListBox(Rect c_drawRect, Rect c_visibleRect, bool c_horScrollV, bool c_vertScrollV, GUISkin c_custom_skin)
+	{
+		drawRect = c_drawRect;
+		visibleRect = c_visibleRect;
+		
+		horScrollVisible = c_horScrollV;
+		vertScrollVisible = c_vertScrollV;
+		
+		custom_skin = c_custom_skin;
+		custom_skin_flag = true;
 	}
 	//=============
 	
@@ -119,6 +147,8 @@ public class ListBox {
 	{
 		bool clicked_button = false;
 		
+		if (custom_skin_flag) GUI.skin = custom_skin;
+		
 		GUI.Box(drawRect, ""); 
 		scrollPos = GUI.BeginScrollView(drawRect, scrollPos, visibleRect, horScrollVisible, vertScrollVisible);
 		
@@ -141,6 +171,8 @@ public class ListBox {
 		//---
 		
 		GUI.EndScrollView();
+		
+		if (custom_skin_flag) GUI.skin = null;
 		
 		return clicked_button;
 	}
