@@ -147,6 +147,7 @@ public class ListBox {
 	{
 		bool clicked_button = false;
 		
+		GUISkin backup_skin = GUI.skin;
 		if (custom_skin_flag) GUI.skin = custom_skin;
 		
 		GUI.Box(drawRect, ""); 
@@ -172,7 +173,7 @@ public class ListBox {
 		
 		GUI.EndScrollView();
 		
-		if (custom_skin_flag) GUI.skin = null;
+		if (custom_skin_flag) GUI.skin = backup_skin;
 		
 		return clicked_button;
 	}
